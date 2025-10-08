@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./:/app
+    environment:
+      - FLASK_ENV=production
+      - FAISS_INDEX_DIR=/app/faiss_index
+    restart: unless-stopped
